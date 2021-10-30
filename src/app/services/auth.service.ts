@@ -29,4 +29,8 @@ export class AuthService {
   saveToken(token: string) {
     localStorage.setItem("auth_token", token);
   }
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem("auth_token") != null;
+  }
 }

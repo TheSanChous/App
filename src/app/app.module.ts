@@ -8,13 +8,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {FormsModule} from "@angular/forms";
+import { GroupsPageComponent } from './components/groups-page/groups-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    NavbarComponent
+    NavbarComponent,
+    GroupsPageComponent
   ],
     imports: [
         BrowserModule,
