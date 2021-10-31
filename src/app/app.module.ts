@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { GroupsPageComponent } from './components/groups-page/groups-page.component';
 import {TokenInterceptor} from "./services/token.interceptor";
 import { GroupsListComponent } from './components/groups-page/groups-list/groups-list.component';
+import { GroupCreateComponent } from './components/groups-page/group-create/group-create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GroupsListComponent } from './components/groups-page/groups-list/groups
     RegistrationComponent,
     NavbarComponent,
     GroupsPageComponent,
-    GroupsListComponent
+    GroupsListComponent,
+    GroupCreateComponent
   ],
     imports: [
         BrowserModule,
