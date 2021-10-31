@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {FormsModule} from "@angular/forms";
 import { GroupsPageComponent } from './components/groups-page/groups-page.component';
 import {TokenInterceptor} from "./services/token.interceptor";
+import { GroupsListComponent } from './components/groups-page/groups-list/groups-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {TokenInterceptor} from "./services/token.interceptor";
     LoginComponent,
     RegistrationComponent,
     NavbarComponent,
-    GroupsPageComponent
+    GroupsPageComponent,
+    GroupsListComponent
   ],
     imports: [
         BrowserModule,
