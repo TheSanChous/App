@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {FormsModule} from "@angular/forms";
 import { GroupsPageComponent } from './components/groups-page/groups-page.component';
+import {TokenInterceptor} from "./services/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { GroupsPageComponent } from './components/groups-page/groups-page.compon
         HttpClientModule,
         FormsModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
