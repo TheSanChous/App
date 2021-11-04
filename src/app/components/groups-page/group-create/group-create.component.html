@@ -1,0 +1,21 @@
+<div class="container col-5 my-5">
+  <h3 class="my-3 text-center">Create Group</h3>
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Enter group name</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Gorup name"
+             name="Name"
+      [(ngModel)]="group.name">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Enter group description</label>
+      <textarea class="form-control" id="formGroupExampleInput2" placeholder="Description" rows="3"
+                name="Description"
+                [(ngModel)]="group.description"></textarea>
+    </div>
+    <button class="btn btn-success my-3" type="submit" (click)="submit()" [disabled] = "isLoading">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+      Create Group
+    </button>
+  </form>
+</div>

@@ -1,6 +1,10 @@
 <div class="container col-md-5 p-5">
   <h1>Registration</h1>
-  <form>
+  <form novalidate [formGroup]="registrationForm" (submit)="submit()">
+    <div class="alert alert-danger py-2"
+         *ngIf="errorMessage">
+      <span class="text-danger">{{errorMessage}}</span>
+    </div>
     <div class="mb-3">
       <label for="InputFirstName" class="form-label">First Name</label>
       <input type="text"
@@ -8,7 +12,8 @@
              class="form-control"
              id="InputFirstName"
              aria-describedby="emailHelp"
-             [(ngModel)]="model.FirstName">
+             formControlName="firstName"
+             [class.is-invalid]="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched">
     </div>
     <div class="mb-3">
       <label for="InputLastName" class="form-label">Last Name</label>
@@ -17,7 +22,8 @@
              class="form-control"
              id="InputLastName"
              aria-describedby="emailHelp"
-             [(ngModel)]="model.LastName">
+             formControlName="lastName"
+             [class.is-invalid]="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
     </div>
     <div class="mb-3">
       <label for="InputEmail" class="form-label">Email address</label>
@@ -26,7 +32,8 @@
              class="form-control"
              id="InputEmail"
              aria-describedby="emailHelp"
-             [(ngModel)]="model.Email">
+             formControlName="email"
+             [class.is-invalid]="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div class="mb-3">
@@ -35,12 +42,16 @@
              name="Password"
              class="form-control"
              id="InputPassword"
-             [(ngModel)]="model.Password">
+             formControlName="password"
+             [class.is-invalid]="registrationForm.controls['password'].invalid && registrationForm.controls['email'].touched">
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" name="SaveSession" class="form-check-input" [(ngModel)]="saveSession" id="Check">
+      <input type="checkbox" name="SaveSession" class="form-check-input" [(ngModel)]="saveSession" id="Check" [ngModelOptions]="{standalone: true}">
       <label class="form-check-label" for="Check" >Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading || registrationForm.invalid">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+      Submit
+    </button>
   </form>
 </div>

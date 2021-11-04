@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GroupsPageComponent } from './components/groups-page/groups-page.component';
 import {TokenInterceptor} from "./services/token.interceptor";
 import { GroupsListComponent } from './components/groups-page/groups-list/groups-list.component';
 import { GroupCreateComponent } from './components/groups-page/group-create/group-create.component';
+import { GroupJoinComponent } from './components/groups-page/group-join/group-join.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { GroupCreateComponent } from './components/groups-page/group-create/grou
     NavbarComponent,
     GroupsPageComponent,
     GroupsListComponent,
-    GroupCreateComponent
+    GroupCreateComponent,
+    GroupJoinComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [
     {

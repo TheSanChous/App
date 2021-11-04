@@ -16,4 +16,12 @@ export class GroupsService {
   getGroups(): Observable<GroupModel[]> {
     return this.http.get<GroupModel[]>(this.url + "/all");
   }
+
+  createGroup(group: GroupModel): Observable<{}> {
+    return this.http.post(this.url + "/create", group);
+  }
+
+  joinGroup(groupIdentifier: string): Observable<{}> {
+    return this.http.post(this.url + "/join", groupIdentifier);
+  }
 }
